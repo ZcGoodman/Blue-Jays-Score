@@ -46,5 +46,5 @@ while (True):
         score=s[0][h_or_a]
         oScore=s[0][opponet]
         message= f"Blue jays socre is {score}-{oScore}"
-        toaster.show_toast("Blue Jays",message,icon_path="download.png",duration=5)
+        toaster.show_toast("Blue Jays",message,duration=5)
     
