@@ -28,7 +28,7 @@ id= team_id[0]
 
 s=statsapi.schedule(date=None, start_date=None, end_date=None, team=id, opponent="", sportId=1, game_id=None)
 
-while (s[0]["status"]=="In Progress"):
+while (s[0]["status"]!="Final"):
     s=statsapi.schedule(date=None, start_date=None, end_date=None, team=id, opponent="", sportId=1, game_id=None)
     if (s[0]["venue_name"]=="Rogers Centre"):
          h_or_a="home_score"
@@ -38,11 +38,12 @@ while (s[0]["status"]=="In Progress"):
     else:
         h_or_a="away_score"
         opponet="home_score"
+        
     inning= s[0]["current_inning"]
     state= s[0]["inning_state"]
+    oScore=s[0][opponet]
     if (s[0][h_or_a]>score):
         score=s[0][h_or_a]
-        oScore=s[0][opponet]
         message= f"Blue Jays socre is {score}-{oScore} in the {state} of the {inning}"
         toaster.show_toast("Blue Jays",message,duration=5)
         
