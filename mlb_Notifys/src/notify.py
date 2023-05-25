@@ -41,9 +41,9 @@ while (s[0]["status"]!="Final"):
         
     inning= s[0]["current_inning"]
     state= s[0]["inning_state"]
-    oScore=s[0][opponet]
-    if (s[0][h_or_a]>score):
+    if (s[0][h_or_a]>score or s[0][opponet]>oScore):
         score=s[0][h_or_a]
+        oScore=s[0][opponet]
         message= f"Blue Jays socre is {score}-{oScore} in the {state} of the {inning}"
         toaster.show_toast("Blue Jays",message,duration=5)
         
