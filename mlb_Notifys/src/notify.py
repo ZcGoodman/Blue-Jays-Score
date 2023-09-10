@@ -44,7 +44,7 @@ while (s[0]["status"]!="Final"):
     if (s[0][h_or_a]>score or s[0][opponet]>oScore):
         score=s[0][h_or_a]
         oScore=s[0][opponet]
-        message= f"Blue Jays socre is {score}-{oScore} in the {state} of the {inning}"
+        message= f"Blue Jays score is {score}-{oScore} in the {state} of the {inning}"
         toaster.show_toast("Blue Jays",message,duration=5)
         
 s=statsapi.schedule(date=None, start_date=None, end_date=None, team=id, opponent="", sportId=1, game_id=None)
